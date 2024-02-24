@@ -1,4 +1,6 @@
 import stylesheet from "~/tailwind.css";
+import clsx from "clsx";
+import { ThemeProvider, useTheme } from "./lib/theme-provider";
 
 import type { LinksFunction } from "@remix-run/node";
 import {
@@ -12,9 +14,12 @@ import {
 
 
 
-export default function App() {
+function App() {
+
+  const [theme] = useTheme()
+
   return (
-    <html lang="en">
+    <html lang="en" className={clsx(theme)}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -35,3 +40,11 @@ export default function App() {
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
 ];
+
+export default function AppWithProviders() {
+  return (
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
+  )
+}

@@ -1,5 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Button } from "~/components/ui/button";
+import { Toggle } from "~/components/ui/toggle";
+import { Theme, useTheme } from "~/lib/theme-provider";
+import Sidebar from '~/components/Sidebar';
 
 export const meta: MetaFunction = () => {
   return [
@@ -9,13 +11,22 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
+
+  const [, setTheme] = useTheme()
+
+  const toggleTheme = () => {
+    setTheme(theme => theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT)
+  }
+
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-      <div>
-        <Button>Click me</Button>
+    <div className="flex">
+      <Sidebar />
+      <div className="flex-1">
+        <div className="flex-1">
+          <Toggle onClick={toggleTheme}>
+            Toggles
+          </Toggle>
+        </div>
       </div>
     </div>
   );
