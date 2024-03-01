@@ -1,11 +1,11 @@
-import { GoogleGenerativeAI } from '@fuyun/generative-ai'
+import { GoogleGenerativeAI } from '@google/generative-ai'
 import { LoaderFunctionArgs, json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
 import dotenv from 'dotenv'
 dotenv.config()
 
 const apiKey = process.env.GEMINI_API_KEY
-const genAI = new GoogleGenerativeAI(apiKey as string)
+const genAI = new GoogleGenerativeAI(apiKey as string ?? "AIzaSyAnurJOwiNeZ-6_HvJk-lrOSQKFBj2KNIU", "https://gemini.muziyan.icu")
 const generationConfig = {
     safetySettings: [
         { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_NONE" },

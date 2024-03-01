@@ -1,6 +1,8 @@
 import stylesheet from "~/tailwind.css";
-import clsx from "clsx";
-import { ThemeProvider, useTheme } from "./lib/theme-provider";
+import clsx from 'clsx';
+import { Provider } from "jotai";
+import { NextUIProvider } from "@nextui-org/react";
+
 
 import type { LinksFunction } from "@remix-run/node";
 import {
@@ -11,12 +13,12 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-
+import { useTheme } from "./utils/providers/theme-provider";
 
 
 function App() {
 
-  const [theme] = useTheme()
+  const [theme, setTheme] = useTheme()
 
   return (
     <html lang="en" className={clsx(theme)}>
@@ -27,10 +29,12 @@ function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
+        <NextUIProvider>
+          <Outlet />
+          <ScrollRestoration />
+          <Scripts />
+          <LiveReload />
+        </NextUIProvider>
       </body>
     </html>
   );
@@ -41,10 +45,11 @@ export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
 ];
 
-export default function AppWithProviders() {
+function AppWithProviders() {
   return (
-    <ThemeProvider>
+    <Provider>
       <App />
-    </ThemeProvider>
+    </Provider>
   )
 }
+export default AppWithProviders

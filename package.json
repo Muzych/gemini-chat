@@ -11,12 +11,8 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@fuyun/generative-ai": "^0.2.1",
     "@google/generative-ai": "^0.2.1",
-    "@radix-ui/react-scroll-area": "^1.0.5",
-    "@radix-ui/react-separator": "^1.0.3",
-    "@radix-ui/react-slot": "^1.0.2",
-    "@radix-ui/react-toggle": "^1.0.3",
+    "@nextui-org/react": "^2.2.9",
     "@remix-run/css-bundle": "^2.7.2",
     "@remix-run/node": "^2.7.2",
     "@remix-run/react": "^2.7.2",
@@ -24,7 +20,9 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "dotenv": "^16.4.5",
+    "framer-motion": "^11.0.8",
     "isbot": "^4.1.0",
+    "jotai": "^2.7.0",
     "lucide-react": "^0.337.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -32,6 +30,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@iconify/react": "^4.1.1",
     "@remix-run/dev": "^2.7.2",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",

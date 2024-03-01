@@ -1,7 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Toggle } from "~/components/ui/toggle";
-import { Theme, useTheme } from "~/lib/theme-provider";
-import Sidebar from '~/components/Sidebar';
+import Header from "~/components/Header";
 
 export const meta: MetaFunction = () => {
   return [
@@ -12,20 +10,15 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
 
-  const [, setTheme] = useTheme()
-
-  const toggleTheme = () => {
-    setTheme(theme => theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT)
-  }
 
   return (
     <div className="flex">
-      <Sidebar />
       <div className="flex-1">
         <div className="flex-1">
-          <Toggle onClick={toggleTheme}>
-            Toggles
-          </Toggle>
+          <Header />
+        </div>
+        <div>
+          Sidebar
         </div>
       </div>
     </div>
