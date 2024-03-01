@@ -1,31 +1,36 @@
 
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
+import {
+    Navbar,
+    NavbarContent,
+    NavbarItem,
+    Link,
+} from "@nextui-org/react";
 import ThemeToggle from "./ThemeToggle";
+import ModelTab from "./ModelTab";
+import { Icon } from '@iconify/react'
+import ApInput from "./ApInput";
 
 export default function App() {
+
+
+
     return (
         <Navbar>
-            <NavbarBrand>
-                <p className="font-bold text-inherit">ACME</p>
-            </NavbarBrand>
-            <NavbarContent className="hidden sm:flex gap-4" justify="center">
+            <NavbarContent className="hidden sm:flex gap-3" justify="start">
                 <NavbarItem>
-                    <Link color="foreground" href="#">
-                        Features
-                    </Link>
+                    <ModelTab />
                 </NavbarItem>
                 <NavbarItem isActive>
-                    <Link href="#" aria-current="page">
-                        Customers
-                    </Link>
+                    <ApInput />
                 </NavbarItem>
-                <NavbarItem>
-                    <Link color="foreground" href="#">
-                        Integrations
-                    </Link>
-                </NavbarItem>
+
             </NavbarContent>
-            <NavbarContent justify="end">
+            <NavbarContent justify="end" className="flex">
+                <NavbarItem>
+                    <Link href="https://github.com/Muzych/gemini-chat" color="foreground" isExternal >
+                        <Icon icon='mdi:github' height={28} />
+                    </Link>
+                </NavbarItem>
                 <NavbarItem>
                     <ThemeToggle />
                 </NavbarItem>
