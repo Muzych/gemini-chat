@@ -5,8 +5,8 @@ import { cn } from '~/lib/utils'
 
 const SideBar = () => {
     return (
-        <div className=''>
-
+        <div>
+            nihao
         </div>
     )
 }
