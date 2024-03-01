@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@fuyun/generative-ai':
+    specifier: ^0.2.1
+    version: 0.2.1
   '@google/generative-ai':
     specifier: ^0.2.1
     version: 0.2.1
@@ -38,6 +41,9 @@ dependencies:
   clsx:
     specifier: ^2.1.0
     version: 2.1.0
+  dotenv:
+    specifier: ^16.4.5
+    version: 16.4.5
   isbot:
     specifier: ^4.1.0
     version: 4.4.0
@@ -891,6 +897,11 @@ packages:
     resolution: {integrity: sha512-gMsVel9D7f2HLkBma9VbtzZRehRogVRfbr++f06nL2vnCGCNlzOD+/MUov/F4p8myyAHspEhVobgjpX64q5m6A==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
+
+  /@fuyun/generative-ai@0.2.1:
+    resolution: {integrity: sha512-F8MJOxEIujaILJUaDKQ74ANKN+GTe+HeErJxtrCxWN5UnSOfFoxhb9sqo0ytXkmlFc0k5GGB6f0uAUdwMcQGXg==}
+    engines: {node: '>=18.0.0'}
+    dev: false
 
   /@google/generative-ai@0.2.1:
     resolution: {integrity: sha512-gNmMFadfwi7qf/6M9gImgyGJXY1jKQ/de8vGOqgJ0PPYgQ7WwzZDavbKrIuXS2zdqZZaYtxW3EFN6aG9x5wtFw==}
@@ -2610,7 +2621,6 @@ packages:
   /dotenv@16.4.5:
     resolution: {integrity: sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==}
     engines: {node: '>=12'}
-    dev: true
 
   /duplexify@3.7.1:
     resolution: {integrity: sha512-07z8uv2wMyS51kKhD1KsdXJg5WQ6t93RneqRxUHnskXVtlYYkLqM0gqStQZ3pj073g687jPCHrqNfCzawLYh5g==}

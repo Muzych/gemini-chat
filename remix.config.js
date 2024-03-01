@@ -8,4 +8,5 @@ export default {
 
   tailwind: true,
   postcss: true,
+  browserNodeBuiltinsPolyfill: { modules: { crypto: true, os: true, path: true } }
 };
