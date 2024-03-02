@@ -1,5 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import Header from "~/components/Header";
+import Content from "~/components/Content"
 
 export const meta: MetaFunction = () => {
   return [
@@ -18,7 +19,7 @@ export default function Index() {
           <Header />
         </div>
         <div>
-          Sidebar
+          <Content />
         </div>
       </div>
     </div>

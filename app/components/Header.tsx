@@ -4,6 +4,7 @@ import {
     NavbarContent,
     NavbarItem,
     Link,
+    NavbarBrand,
 } from "@nextui-org/react";
 import ThemeToggle from "./ThemeToggle";
 import ModelTab from "./ModelTab";
