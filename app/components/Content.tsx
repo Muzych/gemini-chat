@@ -1,6 +1,6 @@
 import React from 'react'
 import { Divider } from '@nextui-org/react'
-import Sidebar from './Sidebar'
+import Sidebar from './navigation/index'
 import Main from './Main'
 
 const Content = () => {
