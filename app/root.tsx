@@ -1,4 +1,5 @@
-import stylesheet from "~/tailwind.css";
+import tailwindCss from "~/tailwind.css";
+
 import clsx from 'clsx';
 import { Provider } from "jotai";
 import { NextUIProvider } from "@nextui-org/react";
@@ -28,7 +29,7 @@ function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="h-full bg-white text-black font-body leading-6 bg-fixed">
         <NextUIProvider>
           <Outlet />
           <ScrollRestoration />
@@ -42,7 +43,23 @@ function App() {
 
 
 export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: stylesheet },
+  { 
+    rel: "stylesheet", 
+    href: tailwindCss 
+  },
+  {
+    rel: "preconnect",
+    href: "https://fonts.googleapis.com",
+  },
+  {
+    rel: "preconnect",
+    href: "https://fonts.gstatic.com",
+    crossOrigin: 'anonymous',
+  },
+  {
+    rel: "stylesheet",
+    href: "https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap",
+  },
 ];
 
 function AppWithProviders() {

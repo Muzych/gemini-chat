@@ -1,6 +1,10 @@
 import type { MetaFunction } from "@remix-run/node";
 import Header from "~/components/Header";
-import Content from "~/components/Content"
+import Content from "~/components/Content";
+import { OpenAI } from 'openai';
+import context from '~/context';
+import { ActionFunctionArgs } from '@remix-run/node';
+import { ChatCompletionMessageParam } from 'openai/resources/chat/completions';
 
 export const meta: MetaFunction = () => {
   return [
@@ -8,6 +12,56 @@ export const meta: MetaFunction = () => {
     { name: "description", content: "Personal Assistant powerd by Gemini Pro" },
   ];
 };
+
+export interface ReturnedDataProps {
+  message?: string;
+  answer: string;
+  error?: string;
+  chatHistory: ChatCompletionMessageParam[];
+}
+
+export async function action({ request }: ActionFunctionArgs): Promise<ReturnedDataProps> {
+  const body = await request.formData();
+  const message = body.get('message') as string;
+  const chatHistory = JSON.parse(body.get('chat-history') as string) || [];
+
+  // store your key in .env
+  const openai = new OpenAI({
+      apiKey: 'sk-2hEAWjeidtqvIDhN120523E66a0646DfAd7d4115F96c4d18',
+      baseURL: 'https://burn.hair/v1',
+  });
+
+  try {
+
+
+      const chat = await openai.chat.completions.create({
+          model: 'gpt-3.5-turbo',
+          messages: [
+              ...context,
+              ...chatHistory,
+              {
+                  role: 'user',
+                  content: message,
+              },
+          ],
+      });
+
+      const answer = chat.choices[0].message?.content;
+
+      return {
+          message: body.get('message') as string,
+          answer: answer as string,
+          chatHistory,
+      };
+  } catch (error: any) {
+      return {
+          message: body.get('message') as string,
+          answer: '',
+          error: error.message || 'Something went wrong! Please try again.',
+          chatHistory,
+      };
+  }
+}
 
 export default function Index() {
 

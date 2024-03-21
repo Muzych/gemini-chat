@@ -14,7 +14,7 @@ const Sidebar = (props: SidebarProps) => {
     } = props
     return (
        <aside className='flex'>
-            <div className="flex flex-col relative p-2 h-[100svh] w-[260px] flex-col overflow-y-auto  dark:border-slate-700  sm:h-[100vh] sm:w-64">
+            <div className="flex  relative p-2 h-[100svh] w-[260px] flex-col overflow-y-auto  dark:border-slate-700  sm:h-[100vh] sm:w-64">
                 <Menubar />
                 <ChatList />
             </div>

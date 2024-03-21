@@ -3,3 +3,5 @@ export interface Chat {
     title: string
     updateTime: number
 }
+
+export type Role = 'user' | 'system' | 'assistant';
