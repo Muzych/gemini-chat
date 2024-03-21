@@ -27,7 +27,7 @@ export async function action({ request }: ActionFunctionArgs): Promise<ReturnedD
 
   // store your key in .env
   const openai = new OpenAI({
-      apiKey: 'sk-2hEAWjeidtqvIDhN120523E66a0646DfAd7d4115F96c4d18',
+      apiKey: process.env.OPENAI_API_KEY,
       baseURL: 'https://burn.hair/v1',
   });
 
